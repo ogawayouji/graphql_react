@@ -1,0 +1,10 @@
+query { 
+  
+  user(login: "ogawayouji") {
+    # login
+    name
+    avatarUrl
+  }
+}
+
+# RESTは静的、GraphQLは動的
