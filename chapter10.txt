@@ -1,0 +1,34 @@
+{
+  user(login: "ogawayouji") {
+    bio
+  }
+}
+
+# {
+#   user(login: "gipcompany") {
+#     bio
+#   }
+# }
+# error
+
+query {
+  user(login: "ogawayouji") {
+    bio
+  }
+}
+
+# query 消える
+
+
+query getUser1 {
+  user(login: "ogawayouji") {
+    bio
+  }
+}
+
+query getUser2 {
+  user(login: "gipcompany") {
+    bio
+  }
+}
+

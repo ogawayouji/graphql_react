@@ -1,0 +1,12 @@
+# 変数
+query ($login: String!){
+  user(login: $login) {
+    bio 
+    name 
+  }
+}
+
+# query variables
+{
+  "login": "gipcompany"
+}

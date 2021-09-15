@@ -1,0 +1,34 @@
+#addStar
+#removeStar
+#mutation
+
+query repository { 
+	repository(owner: "gipcompany", name: "udemy-react-redux-crud-application") {
+    id
+    name
+    url
+  }
+}
+# "MDEwOlJlcG9zaXRvcnkxMjM5NTA3MjU="
+
+mutation addStar {
+  addStar (input: {
+    starrableId: "MDEwOlJlcG9zaXRvcnkxMjM5NTA3MjU="
+  }) {
+    starrable {
+      id
+      viewerHasStarred
+    }
+  }
+  }
+  
+  mutation removeStar {
+  addStar (input: {
+    starrableId: "MDEwOlJlcG9zaXRvcnkxMjM5NTA3MjU="
+  }) {
+    starrable {
+      id
+      viewerHasStarred
+    }
+  }
+  }

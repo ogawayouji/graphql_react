@@ -1,0 +1,16 @@
+github 
+  query
+  mutation
+
+viewer User! User型のviewer
+graphql doc server
+
+
+query fetchViewer {
+  viewer {
+    login
+  }
+  user(login: "ogawayouji") {
+    bio
+  }
+}

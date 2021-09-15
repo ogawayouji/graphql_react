@@ -1,0 +1,10 @@
+{
+  user1: user(login: "ogawayouji") {
+    bio
+    login
+	}
+  user2: user(login: "gipcompany") {
+    bio
+    login
+  }
+}
