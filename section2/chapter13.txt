@@ -1,0 +1,36 @@
+query search { 
+	search (query: "Wework hard", type: USER, first: 2) {
+    nodes {
+      ... on User {
+        id
+        name
+        url
+      }
+      ... on Organization {
+        id
+        name
+        url
+        projectsUrl
+      }
+    }
+  }
+}
+
+query searchWithName { 
+	search (query: "We work hard", type: USER, first: 2) {
+    nodes {
+      __typename
+      ... on User {
+        id
+        name
+        url
+      }
+      ... on Organization {
+        id
+        name
+        url
+        # projectsUrl
+      }
+    }
+  }
+}

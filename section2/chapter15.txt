@@ -1,0 +1,65 @@
+# ページネーション
+# Relay-style cursor pagination
+
+query = "foo bar ..."
+Search Results 
+edgeを探す
+
+query searchRepositories($first: Int, $after: String, $last: Int, $before: String, $query: String!) {
+  search(first: $first, after: $after, last: $last, before: $before, query: $query, type: REPOSITORY) {
+    repositoryCount
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      
+    }
+  }
+}
+
+{
+  "first": 5,
+  "after": null,
+  "last": null,
+  "before": null,
+  "query": "フロントエンジニア"
+}
+
+query searchRepositories($first: Int, $after: String, $last: Int, $before: String, $query: String!) {
+  search(first: $first, after: $after, last: $last, before: $before, query: $query, type: REPOSITORY) {
+    repositoryCount
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+    }
+    edges {
+      cursor
+      node {
+        ... on Repository {
+          id 
+          name 
+          url
+        }
+      }
+		}
+  }
+}
+
+# in repl.it
+
+const cursors = [
+  "Y3Vyc29yOjE=",
+  "Y3Vyc29yOjI=",
+  "Y3Vyc29yOjM=",
+]
+
+cursors
+
+const results = cursors.map(cursor => {
+  return new Buffer(cursor, 'base64').toString('binary')
+})
+
+results
