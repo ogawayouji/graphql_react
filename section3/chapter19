@@ -1,0 +1,6 @@
+sudo npm instll --global create-react-app
+create-react-app udemy-graphql-with-react-intro-search-repos
+
+# udemy-graphql-with-react-intro-search-repos
+
+# yarn start
