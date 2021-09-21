@@ -1,18 +1,19 @@
-import React, { component } from 'react'
+import React, { Component } from 'react'
 import client from "./client"
 import { ApolloProvider } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
+import { ME } from './graphql'
 // function App extends Component {
 
-const ME = gql`
-  query me {
-    user(login: "iteachonudemy"){
-      name
-      avatarUrl
-    }
-  }
-`
+// const ME = gql`
+//   query me {
+//     user(login: "iteachonudemy"){
+//       name
+//       avatarUrl
+//     }
+//   }
+// `
 
 class App extends Component {
   render() {

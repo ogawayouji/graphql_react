@@ -4,7 +4,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloLink } from 'apollo-link'
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN
 
-new ApolloLink((operation, forward) => {
+const headersLink = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
       Authorization: `Bearer ${GITHUB_TOKEN}`
