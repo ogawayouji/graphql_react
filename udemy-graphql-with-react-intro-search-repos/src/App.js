@@ -14,6 +14,12 @@ import { ME, SEARCH_REPOSITORIES } from './graphql'
 //     }
 //   }
 // `
+const StarButton = props => {
+  // console.log(props.node.stargazers.totalCount)
+  const totalCount = props.node.stargazers.totalCount
+  // return <div>{props.node.stargazers.totalCount}</div>
+  return <button>{totalCount === 1 ? "1 star" : `${totalCount} stars`}</button>
+}
 
 const PER_PAGE = 5 
 const DEFAULT_STATE = {
@@ -104,6 +110,8 @@ class App extends Component {
                         return (
                           <li key={node.id}>
                             <a href={node.url} target="_blank" rel="noopener noreferrer">{node.name}</a>
+                            &nbsp;
+                            <StarButton node={node}/>
                           </li>
                         )
                       })
