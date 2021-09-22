@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import client from "./client"
 import { ApolloProvider } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
-import { ME, SEARCH_REPOSITORIES } from './graphql'
+import { Mutation, Query } from 'react-apollo'
+import { ME, SEARCH_REPOSITORIES, ADD_STAR, REMOVE_STAR } from './graphql'
 // function App extends Component {
 
 // const ME = gql`
@@ -22,10 +22,36 @@ const StarButton = props => {
   const viewerHasStarred = node.viewerHasStarred
   const starCount = totalCount === 1 ? "1 star" : `${totalCount} stars`
   // return <button>{totalCount === 1 ? "1 star" : `${totalCount} stars`}</button>
+  const StarStatus = ({addOrRemoveStar}) => {
+    // const StarStatus = ({addStar}) => {
+    return (
+      <button
+      onClick={
+        () => 
+          addOrRemoveStar({
+            // addStar({
+            variables: { input: { starrableId: node.id } }
+          })
+        }
+      >
+        {starCount} | {viewerHasStarred ? 'starred' : '-'}
+      </button>
+    )
+  }
+
+  // return (
+  //   <button>
+  //     {starCount} | {viewerHasStarred ? 'starred' : '-'}
+  //   </button>
+  // )
   return (
-    <button>
-      {starCount} | {viewerHasStarred ? 'starred' : '-'}
-    </button>
+    // <Mutation mutation={ADD_STAR}>
+    <Mutation mutation={viewerHasStarred ? REMOVE_STAR : ADD_STAR}>
+      {
+        addOrRemoveStar => <StarStatus addOrRemoveStar={addOrRemoveStar} />
+        // addStar => <StarStatus addStar={addStar} />
+      }
+    </Mutation>
   )
 }
 
